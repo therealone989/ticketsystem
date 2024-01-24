@@ -1,5 +1,6 @@
 package com.projektwochejf.ticketsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.sql.Time;
@@ -19,6 +20,7 @@ public class Ticket {
 
     @ManyToOne
     @JoinColumn(name = "LehrerID", referencedColumnName = "id")
+    @JsonProperty("LehrerID")
     private User LehrerID;
 
     @ManyToOne
