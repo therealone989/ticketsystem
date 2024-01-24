@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class Lehrer {
 
     @Id
     @GeneratedValue
@@ -14,7 +14,6 @@ public class User {
     private String nachname;
     private String email;
     private String passwort;
-    private String rolle;
 
     public Long getId() {
         return id;
@@ -56,11 +55,4 @@ public class User {
         this.passwort = passwort;
     }
 
-    public String getRolle() {
-        return rolle;
-    }
-
-    public void setRolle(String rolle) {
-        this.rolle = rolle;
-    }
 }

@@ -12,8 +12,7 @@ public class Raum {
 
     @ManyToOne
     @JoinColumn(name = "betreuerId")
-    private User betreuerId;
-
+    private Lehrer betreuerID;
 
 
     public Long getRaumId() {
@@ -24,12 +23,12 @@ public class Raum {
         this.raumId = raumId;
     }
 
-    public User getBetreuerId() {
-        return betreuerId;
+    public Lehrer getBetreuerId() {
+        return betreuerID;
     }
 
-    public void setBetreuerId(User betreuerId) {
-        this.betreuerId = betreuerId;
+    public void setBetreuerId(Lehrer betreuerId) {
+        this.betreuerID = betreuerId;
     }
 
     public String getTitel() {
