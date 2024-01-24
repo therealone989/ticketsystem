@@ -1,8 +1,10 @@
 package com.projektwochejf.ticketsystem.controller;
 
+import com.projektwochejf.ticketsystem.model.LoginResponse;
 import com.projektwochejf.ticketsystem.model.User;
 import com.projektwochejf.ticketsystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,5 +26,22 @@ public class UserController {
         return  userRepository.findAll();
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody User loginUser) {
+        // Hier Logik zur Überprüfung der Anmeldedaten
+        // Zum Beispiel, Überprüfen, ob ein Benutzer mit der E-Mail existiert und ob das Passwort übereinstimmt
+        // Wenn erfolgreich, generieren Sie ein Token und geben dieses zurück
+
+        // Beispiel-Implementierung (Sie müssen hier Ihre eigene Logik einfügen)
+        User user = userRepository.findByEmail(loginUser.getEmail());
+        if (user != null && user.getPasswort().equals(loginUser.getPasswort())) {
+            // Authentifizierung erfolgreich
+            // Token generieren und zurückgeben (Token-Generierung hier nicht implementiert)
+            return ResponseEntity.ok(new LoginResponse(user.getUserId(), user.getRolle()));
+        } else {
+            // Authentifizierung fehlgeschlagen
+            return ResponseEntity.badRequest().body("Ungültige Anmeldedaten");
+        }
+    }
 
 }
