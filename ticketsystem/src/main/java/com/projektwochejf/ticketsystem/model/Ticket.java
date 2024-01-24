@@ -3,6 +3,7 @@ package com.projektwochejf.ticketsystem.model;
 import jakarta.persistence.*;
 
 import java.sql.Time;
+import java.sql.Timestamp;
 
 @Entity
 public class Ticket {
@@ -13,15 +14,24 @@ public class Ticket {
     private String titel;
     private String problem;
     private String status;
-    private Time zeit;
+    private Timestamp zeit;
+
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "LehrerID", referencedColumnName = "id")
     private User LehrerID;
 
     @ManyToOne
-    @JoinColumn(name = "raumId")
+    @JoinColumn(name = "raumID", referencedColumnName = "raumID")
     private Raum raumID;
+
+    public Timestamp getZeit() {
+        return zeit;
+    }
+
+    public void setZeit(Timestamp zeit) {
+        this.zeit = zeit;
+    }
 
     public Long getTicketID() {
         return ticketID;
@@ -53,14 +63,6 @@ public class Ticket {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Time getZeit() {
-        return zeit;
-    }
-
-    public void setZeit(Time zeit) {
-        this.zeit = zeit;
     }
 
     public User getLehrerID() {
