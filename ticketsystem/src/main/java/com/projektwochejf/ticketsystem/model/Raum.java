@@ -10,10 +10,6 @@ public class Raum {
     private Long raumId;
     private String titel;
 
-    @ManyToOne
-    @JoinColumn(name = "betreuerId")
-    private Lehrer betreuerID;
-
 
     public Long getRaumId() {
         return raumId;
@@ -23,13 +19,6 @@ public class Raum {
         this.raumId = raumId;
     }
 
-    public Lehrer getBetreuerId() {
-        return betreuerID;
-    }
-
-    public void setBetreuerId(Lehrer betreuerId) {
-        this.betreuerID = betreuerId;
-    }
 
     public String getTitel() {
         return titel;
