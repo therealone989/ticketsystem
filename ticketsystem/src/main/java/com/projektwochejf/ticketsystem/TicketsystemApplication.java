@@ -14,6 +14,4 @@ public class TicketsystemApplication {
 
 		System.out.println("TESTETS");
 	}
-
-
 }

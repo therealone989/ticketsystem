@@ -12,6 +12,8 @@ public class UsedRoom {
     private Long room_used;
 
 
+
+
     public Long getUsed_roomid() {
         return used_roomid;
     }
@@ -35,4 +37,6 @@ public class UsedRoom {
     public void setRoom_used(Long room_used) {
         this.room_used = room_used;
     }
+
 }
+
