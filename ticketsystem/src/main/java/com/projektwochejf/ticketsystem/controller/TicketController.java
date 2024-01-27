@@ -23,4 +23,13 @@ public class TicketController {
     List<Ticket> getAllTickets() {
         return ticketRepository.findAll();
     }
+
+    @PutMapping("/ticket/{id}")
+    Ticket updateTicketStatus(@RequestBody Ticket ticketDetails, @PathVariable Long id) {
+        Ticket ticket = ticketRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Ticket not found with id " + id));
+        ticket.setStatus(ticketDetails.getStatus());
+        return ticketRepository.save(ticket);
+    }
+
 }

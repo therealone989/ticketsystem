@@ -1,20 +1,26 @@
 package com.projektwochejf.ticketsystem.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class User {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long userId;
     private String vorname;
     private String nachname;
     private String email;
     private String passwort;
     private String rolle;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     public String getRolle() {
         return rolle;
@@ -24,13 +30,7 @@ public class User {
         this.rolle = rolle;
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getVorname() {
         return vorname;

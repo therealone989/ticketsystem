@@ -15,15 +15,8 @@ public class Ticket {
     private String problem;
     private String status;
     private Timestamp zeit;
-
-
-    @ManyToOne
-    @JoinColumn(name = "LehrerID", referencedColumnName = "id")
-    private User LehrerID;
-
-    @ManyToOne
-    @JoinColumn(name = "raumID", referencedColumnName = "raumID")
-    private Raum raumID;
+    private Long lehrerID;
+    private Long raumID;
 
     public Timestamp getZeit() {
         return zeit;
@@ -65,19 +58,19 @@ public class Ticket {
         this.status = status;
     }
 
-    public User getLehrerID() {
-        return LehrerID;
+    public Long getLehrerID() {
+        return lehrerID;
     }
 
-    public void setLehrerID(User lehrerID) {
-        LehrerID = lehrerID;
+    public void setLehrerID(Long lehrerID) {
+        this.lehrerID = lehrerID;
     }
 
-    public Raum getRaumID() {
+    public Long getRaumID() {
         return raumID;
     }
 
-    public void setRaumID(Raum raumID) {
+    public void setRaumID(Long raumID) {
         this.raumID = raumID;
     }
 }
